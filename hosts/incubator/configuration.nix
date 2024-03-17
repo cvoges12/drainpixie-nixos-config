@@ -10,6 +10,10 @@
   # kyubey@incubator
   # homeserver
 
+  imports = [
+    ./hardware-configuration.nix
+  ];
+
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "Europe/Rome";
 
@@ -53,7 +57,6 @@
     loader = {
       systemd-boot = {
         enable = true;
-        timeout = 0;
       };
 
       efi.canTouchEfiVariables = true;
