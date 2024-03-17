@@ -55,7 +55,7 @@
 
       efi.canTouchEfiVariables = true;
     };
-  }
+  };
 
   users.motd = with config; ''
     Incubator; Faye's Homeserver
