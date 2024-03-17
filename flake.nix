@@ -8,7 +8,7 @@
   outputs =
     { self, nixpkgs, ... }@inputs:
     {
-      incubator = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.incubator = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./hosts/incubator/configuration.nix ];
       };
