@@ -10,7 +10,13 @@
     {
       incubator = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./hosts/incubator.nix ];
+        modules = [ ./hosts/incubator/configuration.nix ];
       };
+
+      # todo: timeline (latitude 5490)
+      # timeline = nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   modules = [ ./hosts/timeline/configuration.nix ];
+      # };
     };
 }
