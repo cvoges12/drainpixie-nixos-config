@@ -25,6 +25,7 @@
       "8.8.8.8"
       "8.8.4.4"
     ];
+
     networkmanager.enable = true;
   };
 
@@ -55,16 +56,15 @@
     kernelPackages = pkgs.linuxPackages_latest;
 
     loader = {
-      systemd-boot = {
-        enable = true;
-      };
-
-      efi.canTouchEfiVariables = true;
+	grub = {
+	   device = "/dev/sda";
+	   enable = true;
+	};
     };
   };
 
   users.motd = with config; ''
-    Incubator; Faye's Homeserver
+    Faye's Homeserver
 
     OS      : NixOS ${system.nixos.release} (${system.nixos.codeName})
     Version : ${system.nixos.version}
