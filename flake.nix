@@ -25,7 +25,7 @@
           ./hosts/incubator
           
           nixos-hardware.nixosModules.common-cpu-intel-sandy-bridge
-          nixos-hardware.nixosModules.common-graphics-nvidia
+          nixos-hardware.nixosModules.common-gpu-nvidia
           nixos-hardware.nixosModules.common-pc-hdd
         ];
       };
