@@ -1,10 +1,6 @@
 { pkgs, home-manager, ... }: {
   nix.settings.trusted-users = [ "kyubey" ];
 
-  imports = [
-    <home-manager/nixos>
-  ];
-
   users.users.kyubey = {
     uid = 1000;
     home = "/home/kyubey";
@@ -22,6 +18,7 @@
 
   home-manager.users.kyubey = {
     home = {
+      stateVersion = "24.05";
       packages = with pkgs; [
         htop
 
