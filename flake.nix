@@ -21,7 +21,7 @@
       nixosConfigurations.incubator = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ 
-          ./users/kyubey
+	  ./users/kyubey 
           ./hosts/incubator
           
           nixos-hardware.nixosModules.common-cpu-intel-sandy-bridge

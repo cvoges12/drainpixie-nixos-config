@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, home-manager, ... }: {
   nix.settings.trusted-users = [ "kyubey" ];
 
   imports = [
