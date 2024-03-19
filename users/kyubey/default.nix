@@ -26,6 +26,8 @@
         man-pages-posix
       ];
 
+      # makes ssh shut up about last login
+      file.".hushlogin".text = "";
     };
 
     programs = import ../../common/bash.nix;
