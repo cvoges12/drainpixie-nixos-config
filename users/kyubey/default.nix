@@ -2,7 +2,7 @@
   nix.settings.trusted-users = [ "kyubey" ];
 
   imports = [
-
+    <home-manager/nixos>
   ];
 
   users.users.kyubey = {
