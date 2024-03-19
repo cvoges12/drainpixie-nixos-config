@@ -11,36 +11,30 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , nixos-hardware
-    , home-manager
-    , ...
-    } @inputs: {
-      nixosConfigurations.incubator = nixpkgs.lib.nixosSystem {
-	specialArgs = { inherit inputs; };
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
+    nixosConfigurations.incubator = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
 
-        system = "x86_64-linux";
-        modules = [ 
-	  inputs.home-manager.nixosModule
+      system = "x86_64-linux";
+      modules = [
+        inputs.home-manager.nixosModule
 
-	  ./users/kyubey 
-          ./hosts/incubator
-          
-          nixos-hardware.nixosModules.common-cpu-intel-sandy-bridge
-          nixos-hardware.nixosModules.common-pc-hdd
-        ];
-      };
+        ./users/kyubey
+        ./hosts/incubator
 
-      # todo: timeline (latitude 5490)
-      # timeline = nixpkgs.lib.nixosSystem {
-      #   system = "x86_64-linux";
-      #   modules = [ 
-      #     ./hosts/timeline/configuration.nix
-      #
-      #     nixos-hardware.nixosModules.dell-latitude-5520
-      #   ];
-      # };
+        nixos-hardware.nixosModules.common-cpu-intel-sandy-bridge
+        nixos-hardware.nixosModules.common-pc-hdd
+      ];
     };
+
+    # todo: timeline (latitude 5490)
+    # timeline = nixpkgs.lib.nixosSystem {
+    #   system = "x86_64-linux";
+    #   modules = [ 
+    #     ./hosts/timeline/configuration.nix
+    #
+    #     nixos-hardware.nixosModules.dell-latitude-5520
+    #   ];
+    # };
+  };
 }
