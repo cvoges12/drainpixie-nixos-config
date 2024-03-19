@@ -28,6 +28,6 @@
 
     };
 
-    programs = import ../../common/bash.nix { };
+    programs = import ../../common/bash.nix;
   };
 }

@@ -1,4 +1,4 @@
-_: {
+{
   zoxide = {
     enable = true;
     enableBashIntegration = true;
@@ -8,7 +8,7 @@ _: {
     enable = true;
     enableBashIntegration = true;
 
-    extraOptions = [ "--group-directories-first" "--sort ext" ];
+    extraOptions = [ "--group-directories-first" "--sort=ext" ];
   };
 
   ripgrep = {
