@@ -28,7 +28,7 @@
   bash = {
     enable = true;
     enableCompletion = true;
-    # blesh = true;
+    blesh.enable = true;
 
     historyControl = [ "ignorespace" "erasedups" ];
     shellOptions = [
