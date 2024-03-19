@@ -27,7 +27,7 @@
       ];
 
     };
-    
+
     programs = import ../../common/bash.nix { };
   };
 }
