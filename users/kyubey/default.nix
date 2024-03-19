@@ -25,6 +25,9 @@
         man-pages
         man-pages-posix
       ];
+
     };
+    
+    programs = import ../../common/bash.nix { };
   };
 }

@@ -1,40 +1,36 @@
-{ pkgs, home-manager, ... }: {
-  home-manager.users = {
-    "*" = {
-      programs.zoxide = {
+_: {
+      zoxide = {
         enable = true;
         enableBashIntegration = true;
       };
 
-      programs.eza = {
+      eza = {
         enable = true;
         enableBashIntegration = true;
 
         extraOptions = ["--group-directories-first" "--sort ext"];
       };
 
-      programs.ripgrep = {
+      ripgrep = {
         enable = true;
 
         arguments = ["--hidden" "--smart-case"];
       };
 
-      programs.bat = {
+      bat = {
         enable = true;
         config = {
           theme = "ansi";
           style = "plain";
         };
-
-        extraPackages = true;
       };
 
-      packages.bash = {
+      bash = {
         enable = true;
         enableCompletion = true;
-        blesh = true;
+        # blesh = true;
 
-        historyControl = ["ignoreboth" "erasedups"];
+        historyControl = ["ignorespace" "erasedups"];
         shellOptions = [
           "histappend"
           "cmdhist" 
@@ -67,14 +63,11 @@
           rm = "rm -i";
           mv = "mv -i";
 
-          # cat / man -> bat
+          # cat -> bat
           cat = "bat";
-          man = "batman";
 
           # grep -> ripgrep
           grep = "rg --color=always --hidden --smart-case";
         };
       };
-    };
-  };
 }
