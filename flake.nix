@@ -27,14 +27,18 @@
       ];
     };
 
-    # todo: timeline (latitude 5490)
-    # timeline = nixpkgs.lib.nixosSystem {
-    #   system = "x86_64-linux";
-    #   modules = [ 
-    #     ./hosts/timeline/configuration.nix
-    #
-    #     nixos-hardware.nixosModules.dell-latitude-5520
-    #   ];
-    # };
+    timeline = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+
+      system = "x86_64-linux";
+      modules = [
+        inputs.home-manager.nixosModule
+
+        ./users/akemi
+        ./hosts/timeline
+
+        nixos-hardware.nixosModules.dell-latitude-5520
+      ];
+    };
   };
 }
