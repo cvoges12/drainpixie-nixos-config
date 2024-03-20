@@ -30,6 +30,6 @@
       file.".hushlogin".text = "";
     };
 
-    programs = { ssh.startAgent = true; } // import ../../common/bash.nix;
+    programs = { } // import ../../common/bash.nix;
   };
 }

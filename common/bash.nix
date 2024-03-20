@@ -69,7 +69,7 @@
       grep = "rg --color=always --hidden --smart-case";
     };
 
-    promptInit = ''
+    initExtra = ''
       __pwd() {
       	local pwd=$(dirs +0)
 
@@ -108,7 +108,7 @@
       PS1="''${debian_chroot:+($debian_chroot)}''${LIGHT_GREEN}\u@\h''${NO_COLOR}:''${LIGHT_BLUE}\$(__pwd)''${NO_COLOR}''${LIGHT_RED}\$(__git)''${NO_COLOR} \$ "
     '';
 
-    shellInit = ''
+    bashrcExtra = ''
       [[ -f ~/.profile ]] && . ~/.profile 
     '';
   };
