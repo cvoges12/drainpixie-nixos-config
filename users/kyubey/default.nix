@@ -17,10 +17,10 @@
   };
 
   home-manager.users.kyubey = {
-    file.".hushlogin".text = "";
-
     home = {
       stateVersion = "24.05";
+      file.".hushlogin".text = "";
+
       packages = with pkgs; [
         htop
 
