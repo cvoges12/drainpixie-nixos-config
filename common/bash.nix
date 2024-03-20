@@ -92,20 +92,11 @@
       	echo "$short"
       }
 
-      __git() {
-          local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-          if [ -n "$branch" ]; then
-              echo -n " $branch"
-          fi
-      }
-
-
-      LIGHT_RED="\[\033[1;31m\]"
       LIGHT_BLUE="\[\033[1;34m\]"
       LIGHT_GREEN="\[\033[1;32m\]"
       NO_COLOR="\[\033[0m\]"
 
-      PS1="''${debian_chroot:+($debian_chroot)}''${LIGHT_GREEN}\u@\h''${NO_COLOR}:''${LIGHT_BLUE}\$(__pwd)''${NO_COLOR}''${LIGHT_RED}\$(__git)''${NO_COLOR} \$ "
+      PS1="''${debian_chroot:+($debian_chroot)}''${LIGHT_GREEN}\u@\h''${NO_COLOR}:''${LIGHT_BLUE}\$(__pwd)''${NO_COLOR} \$ "
     '';
 
     bashrcExtra = ''
