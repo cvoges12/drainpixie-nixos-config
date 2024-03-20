@@ -1,0 +1,47 @@
+diff --git a/config.h b/config.h
+index 0985d2e..baa77f8 100644
+--- a/config.h
++++ b/config.h
+@@ -40,7 +40,10 @@ static const uint8_t borders[] = {3,5,5,4};
+ #define LOOK_INTO "WM_NAME"
+ static const char *ignore_names[] = {"bar", "xclock"};
+ ///--Menus and Programs---///
+-static const char *menucmd[]   = { "", NULL };
++// static const char *menucmd[]   = { "", NULL };
++static const char *terminal[]   = { "alacritty", NULL };
++static const char *rofi_run[]   = { "rofi", "-show", "combi" };
++static const char *rofi_window[]   = { "rofi", "-show", "window" };
+ ///--Custom foo---///
+ static void halfandcentered(const Arg *arg)
+ {
+@@ -193,7 +196,10 @@ static key keys[] = {
+     {  MOD |SHIFT,        XK_Right,      cursor_move,       {.i=TWOBWM_CURSOR_RIGHT}},
+     {  MOD |SHIFT,        XK_Left,       cursor_move,       {.i=TWOBWM_CURSOR_LEFT}},
+     // Start programs
+-    {  MOD ,              XK_w,          start,             {.com = menucmd}},
++    //{  MOD ,              XK_w,          start,             {.com = menucmd}},
++    {  MOD ,              XK_Return,     start,             {.com = terminal}},
++    {  MOD ,              XK_d,          start,             {.com = rofi_run}},
++    {  MOD ,              XK_i,          start,             {.com = rofi_window}},
+     // Exit or restart 2bwm
+     {  MOD |CONTROL,      XK_q,          twobwm_exit,       {.i=0}},
+     {  MOD |CONTROL,      XK_r,          twobwm_restart,    {.i=0}},
+@@ -215,7 +221,7 @@ static key keys[] = {
+ static Button buttons[] = {
+     {  MOD        ,XCB_BUTTON_INDEX_1,     mousemotion,   {.i=TWOBWM_MOVE}, false},
+     {  MOD        ,XCB_BUTTON_INDEX_3,     mousemotion,   {.i=TWOBWM_RESIZE}, false},
+-    {  0          ,XCB_BUTTON_INDEX_3,     start,         {.com = menucmd}, true},
++    {  0          ,XCB_BUTTON_INDEX_3,     start,         {.com = terminal}, true},
+     {  MOD|SHIFT,  XCB_BUTTON_INDEX_1,     changeworkspace, {.i=0}, false},
+     {  MOD|SHIFT,  XCB_BUTTON_INDEX_3,     changeworkspace, {.i=1}, false},
+     {  MOD|ALT,    XCB_BUTTON_INDEX_1,     changescreen,    {.i=1}, false},
+diff --git a/definitions.h b/definitions.h
+index a380a3a..8aa8a45 100644
+--- a/definitions.h
++++ b/definitions.h
+@@ -1,4 +1,4 @@
+-#define WORKSPACES      10
++#define WORKSPACES      6
+ #define BUTTONMASK      XCB_EVENT_MASK_BUTTON_PRESS|XCB_EVENT_MASK_BUTTON_RELEASE
+ #define NET_WM_FIXED    0xffffffff  // Value in WM hint which means this window is fixed on all workspaces.
+ #define TWOBWM_NOWS     0xfffffffe  // This means we didn't get any window hint at all.

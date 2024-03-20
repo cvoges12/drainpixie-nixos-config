@@ -1,5 +1,6 @@
 { pkgs, home-manager, ... }: {
   nix.settings.trusted-users = [ "akemi" ];
+  nixpkgs.config = { "2bwm".patches = [ ../../patches/2bwm.diff ]; };
 
   users.users.akemi = {
     uid = 1000;
@@ -24,6 +25,10 @@
         wget
         curl
 
+        ## TODO: Move
+        rofi
+        ##
+
         fd
         tokei
         du-dust
@@ -36,6 +41,18 @@
       ];
 
       sessionVariables = { } // import ../../common/session.nix;
+    };
+
+    xdg = {
+      userDirs = {
+        enable = true;
+
+        music = "$HOME/msc";
+        desktop = "$HOME/dsk";
+        download = "$HOME/dwl";
+        pictures = "$HOME/img";
+        documents = "$HOME/doc";
+      };
     };
 
     programs = { } // import ../../common/bash.nix;

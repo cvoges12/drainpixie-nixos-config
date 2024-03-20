@@ -27,7 +27,7 @@
       ];
     };
 
-    timeline = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.timeline = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
 
       system = "x86_64-linux";
