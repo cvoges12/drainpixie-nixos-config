@@ -17,6 +17,8 @@
   };
 
   home-manager.users.kyubey = {
+    file.".hushlogin".text = "";
+
     home = {
       stateVersion = "24.05";
       packages = with pkgs; [
@@ -25,9 +27,6 @@
         man-pages
         man-pages-posix
       ];
-
-      # makes ssh shut up about last login
-      file.".hushlogin".text = "";
 
       sessionVariables = { } // import ../../common/session.nix;
     };
