@@ -28,6 +28,8 @@
 
       # makes ssh shut up about last login
       file.".hushlogin".text = "";
+
+      sessionVariables = { } // import ../../common/session.nix;
     };
 
     programs = { } // import ../../common/bash.nix;
