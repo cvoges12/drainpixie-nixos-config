@@ -1,18 +1,10 @@
-{
-  self,
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ self, config, pkgs, lib, ... }:
 
 {
   # kyubey@incubator
   # homeserver
 
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "Europe/Rome";
@@ -21,10 +13,7 @@
 
   networking = {
     hostName = "incubator";
-    nameservers = [
-      "8.8.8.8"
-      "8.8.4.4"
-    ];
+    nameservers = [ "8.8.8.8" "8.8.4.4" ];
 
     networkmanager.enable = true;
   };
@@ -41,21 +30,16 @@
     };
   };
 
-  environment = {
-    systemPackages = with pkgs; [
-      git
-      neovim
-    ];
-  };
+  environment = { systemPackages = with pkgs; [ git neovim ]; };
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
 
     loader = {
-	    grub = {
-	      device = "/dev/sda";
-	      enable = true;
-	    };
+      grub = {
+        device = "/dev/sda";
+        enable = true;
+      };
     };
   };
 

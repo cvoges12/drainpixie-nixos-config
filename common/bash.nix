@@ -110,6 +110,6 @@
 
     shellInit = ''
       [[ -f ~/.profile ]] && . ~/.profile 
-    ''
+    '';
   };
 }
