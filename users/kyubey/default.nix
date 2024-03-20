@@ -4,8 +4,8 @@
   users.users.kyubey = {
     uid = 1000;
     home = "/home/kyubey";
-    shell = pkgs.bash;
 
+    shell = pkgs.bash;
     isNormalUser = true;
     initialPassword = "changeme";
 
