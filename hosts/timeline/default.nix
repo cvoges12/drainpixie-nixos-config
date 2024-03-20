@@ -1,8 +1,15 @@
-{ pkgs, ... }:
-{
-  imports = [ ./hardware-configuration.nix ../../common/system.nix ];
+{ pkgs, ... }: {
+  imports = [
+    ./hardware-configuration.nix
+
+    ./pipewire.nix
+    ./xserver.nix
+
+    ../../common/system.nix
+  ];
 
   networking.hostName = "timeline";
+  powerManagement.enable = true;
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -11,6 +18,8 @@
       efi.canTouchEfiVariables = true;
     };
   };
+
+  services = { upower.enable = true; };
 
   system.stateVersion = "24.05";
 }

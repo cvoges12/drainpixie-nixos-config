@@ -1,5 +1,5 @@
 { pkgs, home-manager, ... }: {
-  nix.settings.trusted-users = ["kyubey"];
+  nix.settings.trusted-users = [ "akemi" ];
 
   users.users.akemi = {
     uid = 1000;
@@ -27,6 +27,9 @@
         fd
         tokei
         du-dust
+
+        ungoogled-chromium
+        alacritty
 
         zip
         unzip
