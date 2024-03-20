@@ -2,6 +2,7 @@ _: {
   services.xserver = {
     enable = true;
 
+    xkb.layout = "it";
     windowManager."2bwm".enable = true;
 
     displayManager = {
