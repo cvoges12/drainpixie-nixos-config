@@ -1,5 +1,10 @@
 { pkgs }: {
-  programs.ssh.startAgent = true;
+  programs.ssh = {
+    startAgent = true;
+    extraConfig = ''
+      AddKeysToAgent yes
+    '';
+  };
 
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "Europe/Rome";
