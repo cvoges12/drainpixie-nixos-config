@@ -1,17 +1,7 @@
-{ pkgs, home-manager, inputs, ... }:
-let
-in {
+{ pkgs, home-manager, inputs, ... }: {
   nix.settings.trusted-users = [ "akemi" ];
-  nixpkgs.overlays = [
-    (self: super: {
-      _2bwm = super._2bwm.overrideAttrs (_: {
-        src = inputs._2bwm;
-        patches = [ ../../patches/2bwm.diff ];
-      });
-    })
-  ];
 
-  imports = [ ./alacritty.nix ];
+  imports = [ ./desktop.nix ./alacritty.nix ];
 
   users.users.akemi = {
     uid = 1000;
@@ -35,11 +25,6 @@ in {
 
         wget
         curl
-
-        ## TODO: Move
-        rofi
-        slock
-        ##
 
         fd
         tokei

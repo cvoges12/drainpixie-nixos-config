@@ -70,6 +70,10 @@
     };
 
     initExtra = ''
+      run() {
+          nix run nixpkgs#"$1" -- "''${@:2}"
+      }
+
       __pwd() {
       	local pwd=$(dirs +0)
 
