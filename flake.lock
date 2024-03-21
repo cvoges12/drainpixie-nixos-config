@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "_2bwm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710675429,
+        "narHash": "sha256-RPqQSWkkq8sfvpJJbYRZ4tGgLfcf0HIH/Jn3RItDsU8=",
+        "owner": "venam",
+        "repo": "2bwm",
+        "rev": "39d5ae3a04d25b03b3e1da46dd6be77250c25376",
+        "type": "github"
+      },
+      "original": {
+        "owner": "venam",
+        "repo": "2bwm",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -53,6 +69,7 @@
     },
     "root": {
       "inputs": {
+        "_2bwm": "_2bwm",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs"

@@ -1,6 +1,17 @@
-{ pkgs, home-manager, ... }: {
+{ pkgs, home-manager, inputs, ... }:
+let
+in {
   nix.settings.trusted-users = [ "akemi" ];
-  nixpkgs.config = { "2bwm".patches = [ ../../patches/2bwm.diff ]; };
+  nixpkgs.overlays = [
+    (self: super: {
+      _2bwm = super._2bwm.overrideAttrs (_: {
+        src = inputs._2bwm;
+        patches = [ ../../patches/2bwm.diff ];
+      });
+    })
+  ];
+
+  imports = [ ./alacritty.nix ];
 
   users.users.akemi = {
     uid = 1000;
@@ -27,6 +38,7 @@
 
         ## TODO: Move
         rofi
+        slock
         ##
 
         fd

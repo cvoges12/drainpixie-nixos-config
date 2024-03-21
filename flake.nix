@@ -9,6 +9,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    _2bwm = {
+      url = "github:venam/2bwm";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
