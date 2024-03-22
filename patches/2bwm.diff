@@ -1,8 +1,8 @@
 diff --git a/config.h b/config.h
-index 0985d2e..53de6da 100644
+index 0985d2e..d073e5c 100644
 --- a/config.h
 +++ b/config.h
-@@ -1,223 +1,133 @@
+@@ -1,223 +1,135 @@
 -///---User configurable stuff---///
 -///---Modifiers---///
 -#define MOD             XCB_MOD_MASK_4       /* Super/Windows key  or check xmodmap(1) with -pm  defined in /usr/include/xcb/xproto.h */
@@ -70,21 +70,23 @@ index 0985d2e..53de6da 100644
 +};
 +
 +static const uint8_t borders[] = {
-+    16, // Outer border
-+    16, // Full border
-+    16, // Magnet border
-+    16  // Resize border
++    4, // Outer border
++    8, // Full border
++    4, // Magnet border
++    4  // Resize border
 +};
 +
 +static const char *colors[] = {
-+    "#9375F5", // Focus
-+    "#9375F5", // Unfocused
++    "#F27A9B", // Focus
++    "#F27A9B", // Unfocused
 +    "#201D2A", // Fixed
 +    "#000000", // Unkillable
 +    "#000000", // Fixed unkillable
-+    "#A286FD", // Outer border
-+    "#A286FD"  // Empty
++    "#F6F6F6", // Outer border
++    "#F6F6F6"  // Empty
 +};
++
++
 +
 +static const bool inverted_colors = false;
 +static const bool resize_by_line = true;
@@ -323,7 +325,7 @@ index 0985d2e..53de6da 100644
 +    {MOD, XK_d, start, {.com = rofirun}},
 +    {MOD, XK_i, start, {.com = rofiwindow}},
 +
-+    {MOD | CONTROL | SHIFT, XK_l, start, {.com = lock}},
++    {MOD |SHIFT, XK_p, start, {.com = lock}},
 +
 +    {MOD, XK_s, toggle_sloppy, {.com = sloppy_switch_cmd}},
 +

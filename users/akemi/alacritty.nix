@@ -5,8 +5,8 @@ in {
     enable = true;
     settings = {
       window.padding = {
-        x = 16;
-        y = 16;
+        x = 8;
+        y = 8;
       };
 
       colors.primary = my.colors.primary;
@@ -14,10 +14,10 @@ in {
       colors.bright = my.colors.bright;
 
       font = {
-	normal.family = "tewi";
-	bold.family = "tewi";
-	italic.family = "tewi";
-	bold_italic.family = "tewi";
+        normal.family = "tewi";
+        bold.family = "tewi";
+        italic.family = "tewi";
+        bold_italic.family = "tewi";
       };
     };
   };
