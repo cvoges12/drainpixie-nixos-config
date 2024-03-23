@@ -53,13 +53,13 @@
       };
     };
 
-    programs = {
-      steam = {
-        enable = true;
+    programs = { } // import ../../common/bash.nix;
+  };
 
-        remotePlay.openFirewall = true;
-        dedicatedServer.openFirewall = true;
-      };
-    } // import ../../common/bash.nix;
+  programs.steam = {
+    enable = true;
+
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
   };
 }
