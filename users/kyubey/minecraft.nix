@@ -18,7 +18,7 @@
         serverProperties = {
           motd = "i love girls";
           server-port = 43000;
-          online-mode = false;
+          online-mode = true;
           max-players = 5;
 
           difficulty = "normal";

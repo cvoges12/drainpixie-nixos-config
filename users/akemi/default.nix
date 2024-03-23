@@ -2,6 +2,7 @@
   nix.settings.trusted-users = [ "akemi" ];
 
   imports = [ ./desktop.nix ./alacritty.nix ];
+  services.tailscale.enable = true;
 
   users.users.akemi = {
     uid = 1000;
@@ -52,6 +53,13 @@
       };
     };
 
-    programs = { } // import ../../common/bash.nix;
+    programs = {
+      steam = {
+        enable = true;
+
+        remotePlay.openFirewall = true;
+        dedicatedServer.openFirewall = true;
+      };
+    } // import ../../common/bash.nix;
   };
 }

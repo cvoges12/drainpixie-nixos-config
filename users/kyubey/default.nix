@@ -1,9 +1,6 @@
 { pkgs, inputs, home-manager, ... }: {
-  imports = [ ./jellyfin.nix ./minecraft.nix ];
-
+  imports = [ ./jellyfin.nix ./minecraft.nix ./tailscale.nix ];
   nix.settings.trusted-users = [ "kyubey" ];
-
-  services.nginx.enable = true;
 
   users.users.kyubey = {
     uid = 1000;

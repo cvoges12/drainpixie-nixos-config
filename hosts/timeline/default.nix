@@ -8,13 +8,6 @@
     ../../common/system.nix
   ];
 
-  programs.steam = {
-    enable = true;
-
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-
   networking.hostName = "timeline";
   powerManagement.enable = true;
 
