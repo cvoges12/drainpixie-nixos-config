@@ -1,4 +1,6 @@
 { pkgs, home-manager, ... }: {
+  imports = [ ./jellyfin.nix ];
+
   nix.settings.trusted-users = [ "kyubey" ];
 
   users.users.kyubey = {
@@ -23,6 +25,8 @@
 
       packages = with pkgs; [
         htop
+        tmux
+        aria2
 
         man-pages
         man-pages-posix
