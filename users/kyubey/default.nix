@@ -3,6 +3,8 @@
 
   nix.settings.trusted-users = [ "kyubey" ];
 
+  services.nginx.enable = true;
+
   users.users.kyubey = {
     uid = 1000;
     home = "/home/kyubey";

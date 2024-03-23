@@ -11,7 +11,6 @@
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
-      # doesn't build
       # vaapiIntel
       vaapiVdpau
       libvdpau-va-gl
@@ -20,8 +19,8 @@
   };
 
   services.jellyfin = {
+    user = "kyubey";
     enable = true;
     openFirewall = true;
-    user = "kyubey";
   };
 }
