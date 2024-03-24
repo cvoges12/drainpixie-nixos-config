@@ -21,5 +21,12 @@
 
   services = { upower.enable = true; };
 
+  programs.steam = {
+    enable = true;
+
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
   system.stateVersion = "24.05";
 }
