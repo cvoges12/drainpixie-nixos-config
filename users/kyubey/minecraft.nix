@@ -1,23 +1,40 @@
-{ inputs, pkgs, home-manager, lib, ... }: {
+{ inputs, pkgs, home-manager, lib, ... }:
+let
+  modpack = pkgs.fetchPackwizModpack {
+    url =
+      "https://raw.githubusercontent.com/packwiz/packwiz-example-pack/v1/pack.toml";
+    packHash = "mQFjhQg4gyz+IlWNmjQbAqLAw1WMLsxF1u9HqtYi2Y8=";
+  };
+
+  minecraftVersion = modpack.manifest.versions.minecraft;
+  quiltVersion = modpack.manifest.versions.quilt;
+  serverVersion =
+    lib.replaceStrings [ "." ] [ "_" ] "quilt-${minecraftVersion}";
+in {
   nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
   services.minecraft-servers = {
-    enable = true;
     eula = true;
+    enable = true;
     openFirewall = true;
 
     servers = {
-      survival = {
+      girltits = {
         enable = true;
+        autoStart = true;
         enableReload = true;
-        package = pkgs.paperServers.paper-1_20_4;
+        openFirewall = true;
+
+        package = pkgs.quiltServers.${serverVersion}.override {
+          loaderVersion = quiltVersion;
+        };
+        symlinks = { "mods" = "${modpack}/mods"; };
 
         jvmOpts =
-          "-Xmx4096M -Xms4096M -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1HeapRegionSize=8M -XX:G1HeapWastePercent=5 -XX:G1MaxNewSizePercent=40 -XX:G1MixedGCCountTarget=4 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1NewSizePercent=30 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:G1ReservePercent=20 -XX:InitiatingHeapOccupancyPercent=15 -XX:MaxGCPauseMillis=200 -XX:MaxTenuringThreshold=1 -XX:SurvivorRatio=32 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true";
+          "-XX:+UseG1GC -Xmx4G -Xms4G -Dsun.rmi.dgc.server.gcInterval=600000 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32";
 
         serverProperties = {
-          motd = "i love girls";
-          server-port = 43000;
+          motd = "we love gitties";
           online-mode = true;
           max-players = 5;
 
@@ -30,4 +47,5 @@
       };
     };
   };
+
 }
