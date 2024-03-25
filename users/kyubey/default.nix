@@ -1,5 +1,5 @@
 { pkgs, inputs, home-manager, ... }: {
-  imports = [ ./jellyfin.nix ./minecraft.nix ./tailscale.nix ];
+  imports = [ ./borg.nix ./jellyfin.nix ./minecraft.nix ./tailscale.nix ];
   nix.settings.trusted-users = [ "kyubey" ];
 
   users.users.kyubey = {

@@ -36,6 +36,7 @@ in {
         serverProperties = {
           motd = "we love gitties";
           online-mode = true;
+          server-port = 43000;
           max-players = 5;
 
           difficulty = "normal";
