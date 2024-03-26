@@ -55,10 +55,10 @@
     };
 
     programs = {
-  	direnv = {
-	  enable = true;
-	  enableBashIntegration = true;
-	};
+      direnv = {
+        enable = true;
+        enableBashIntegration = true;
+      };
     } // import ../../common/bash.nix;
   };
 }
