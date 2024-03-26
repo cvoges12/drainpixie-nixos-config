@@ -2,6 +2,7 @@
   nix.settings.trusted-users = [ "akemi" ];
 
   imports = [ ./desktop.nix ./alacritty.nix ];
+
   services.tailscale.enable = true;
 
   users.users.akemi = {
@@ -53,6 +54,11 @@
       };
     };
 
-    programs = { } // import ../../common/bash.nix;
+    programs = {
+  	direnv = {
+	  enable = true;
+	  enableBashIntegration = true;
+	};
+    } // import ../../common/bash.nix;
   };
 }
