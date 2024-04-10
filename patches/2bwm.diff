@@ -1,8 +1,8 @@
 diff --git a/config.h b/config.h
-index 0985d2e..d073e5c 100644
+index 0985d2e..60e1c4f 100644
 --- a/config.h
 +++ b/config.h
-@@ -1,223 +1,135 @@
+@@ -1,223 +1,137 @@
 -///---User configurable stuff---///
 -///---Modifiers---///
 -#define MOD             XCB_MOD_MASK_4       /* Super/Windows key  or check xmodmap(1) with -pm  defined in /usr/include/xcb/xproto.h */
@@ -70,10 +70,10 @@ index 0985d2e..d073e5c 100644
 +};
 +
 +static const uint8_t borders[] = {
-+    4, // Outer border
-+    8, // Full border
-+    4, // Magnet border
-+    4  // Resize border
++    5, // Outer border
++    7, // Full border
++    2, // Magnet border
++    3// Resize border
 +};
 +
 +static const char *colors[] = {
@@ -111,8 +111,10 @@ index 0985d2e..d073e5c 100644
 +
 +static const char *lock[] = {"slock", NULL};
 +static const char *terminal[] = {"alacritty", NULL};
-+static const char *rofirun[] = {"rofi", "-show", "combi"};
-+static const char *rofiwindow[] = {"rofi", "-show", "window"};
++static const char *rofirun[] = {"rofi", "-show", "combi", NULL};
++static const char *rofiwindow[] = {"rofi", "-show", "window", NULL};
++// static const char *screenshot[] = {"maim", "-m 10", "-s", "|", "xclip", "-selection clipboard", "-t image/png"};
++static const char *screenshot[] = {"screenshot", NULL};
 +
  static const char *sloppy_switch_cmd[] = {};
 -//static const char *sloppy_switch_cmd[] = { "notify-send", "toggle sloppy", NULL };
@@ -323,8 +325,8 @@ index 0985d2e..d073e5c 100644
 +
 +    {MOD, XK_Return, start, {.com = terminal}},
 +    {MOD, XK_d, start, {.com = rofirun}},
-+    {MOD, XK_i, start, {.com = rofiwindow}},
-+
++    {MOD, XK_Print, start, {.com = screenshot}},
++    
 +    {MOD |SHIFT, XK_p, start, {.com = lock}},
 +
 +    {MOD, XK_s, toggle_sloppy, {.com = sloppy_switch_cmd}},

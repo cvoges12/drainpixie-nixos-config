@@ -20,24 +20,25 @@
     home = {
       stateVersion = "24.05";
 
-      packages = with pkgs; [
-        strace
-        man-pages
-        man-pages-posix
+      packages = with pkgs;
+        [
+          strace
+          man-pages
+          man-pages-posix
 
-        wget
-        curl
+          wget
+          curl
 
-        fd
-        tokei
-        du-dust
+          fd
+          tokei
+          du-dust
 
-        ungoogled-chromium
-        alacritty
+          ungoogled-chromium
+          alacritty
 
-        zip
-        unzip
-      ];
+          zip
+          unzip
+        ] ++ (import ../../scripts{ inherit pkgs; });
 
       sessionVariables = { } // import ../../common/session.nix;
     };
@@ -60,5 +61,7 @@
         enableBashIntegration = true;
       };
     } // import ../../common/bash.nix;
+
+    services.arrpc.enable = true;
   };
 }

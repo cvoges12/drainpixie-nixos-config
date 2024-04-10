@@ -9,7 +9,9 @@
   ];
 
   home-manager.users.akemi = {
-    home = { packages = with pkgs; [ rofi slock tewi-font ]; };
+    home = {
+      packages = with pkgs; [ rofi slock cozette tewi-font ];
+    };
   };
 
   # `slock` needs to disable OOM killer, for some reason.
