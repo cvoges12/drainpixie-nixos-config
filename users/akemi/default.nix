@@ -38,7 +38,7 @@
 
           zip
           unzip
-        ] ++ (import ../../scripts{ inherit pkgs; });
+        ] ++ (import ../../scripts { inherit pkgs; });
 
       sessionVariables = { } // import ../../common/session.nix;
     };
